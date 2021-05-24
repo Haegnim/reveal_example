@@ -128,6 +128,7 @@ $(function(){
     $(this).addClass("active");
   });
 
-  
+  // Venobox Lightbox(modal box) plugin code 
+  $('.venobox').venobox(); 
 
 });
