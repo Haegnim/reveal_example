@@ -340,6 +340,7 @@
     </section>
     <!-- End of Portfolio section area  -->
 
+    <!-- Contact Section Area  -->
     <section id="contact" class="section">
       <div class="center">
         <div class="section-title">
@@ -370,6 +371,50 @@
         </div>
 
       </div>
+    </section>
+    <!-- End of contact Section Area  -->
+
+    <section id="recieved" class="section">
+      <div class="center">
+        <div class="section-title">
+          <h2>Messages Recieved</h2>
+          <p>Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance.</p>
+        </div>
+        <ul class="msg-table">
+          <li class="msg-tit">
+              <span>글쓴이</span>
+              <span>이메일</span>
+              <span>제목</span>
+              <span>등록일</span>
+          </li>
+          <?php
+            include_once $_SERVER['DOCUMENT_ROOT']."/reveal/php/connect.php"; // $db_conn
+            $sql = "SELECT * FROM re_message ORDER BY RE_idx DESC";
+
+            $msg_result = mysqli_query($db_conn, $sql);
+            // var_dump($msg_result);
+
+
+            while($row =  mysqli_fetch_array($msg_result)){
+              $name = $row['RE_name'];
+              $email = $row['RE_email'];
+              $subject = $row['RE_subject'];
+              $regist = $row['RE_reg'];
+              //echo $name;
+          ?>
+          <li class="msg-con">
+              <span><?=$name?></span>
+              <span><?=$email?></span>
+              <span><?=$subject?></span>
+              <span><?=$regist?></span>
+          </li>
+          <?php
+            }
+          ?>
+
+        </ul>
+      </div>
+      
     </section>
 
     <footer>
